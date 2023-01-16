@@ -46,8 +46,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function getDynamicInformation(selector) {
         const input = document.querySelector(selector)
 
+
+
         input.addEventListener('input', () => {
-            switch(input.getAttribute('id')) {
+            if (input.value.match(/\D/g)) {
+                // add text to error
+                input.style.border = "1px solid red"
+            } else {
+                input.style.border = 'none'
+            }
+            switch (input.getAttribute('id')) {
                 case "height":
                     height = +input.value
                     break;
