@@ -1,9 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     const result = document.querySelector('.calculating__result span')
-    let gender = 'woman'
     let ratio = 1.375
-    let height, weight, age
+    let height, weight, age, gender
+
+    if (localStorage.getItem('gender')) {
+        gender = localStorage.getItem('gender')
+    } else {
+        gender = 'woman'
+        localStorage.setItem('gender', 'woman')
+    }
+
+    if (localStorage.getItem('ratio')) {
+        ratio = localStorage.getItem('ratio')
+    } else {
+        ratio = '1.375'
+        localStorage.setItem('ratio', '1.375')
+    }
 
     function calcTotal() {
         if (!gender || !height || !weight || !age || !ratio) {
