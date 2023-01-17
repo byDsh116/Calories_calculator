@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     const result = document.querySelector('.calculating__result span')
-    let ratio = 1.375
-    let height, weight, age, gender
+    let height, weight, age, gender, ratio;
 
     if (localStorage.getItem('gender')) {
         gender = localStorage.getItem('gender')
@@ -32,8 +31,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     calcTotal()
 
-    function getStaticInformation(parentSelector, activeClass) {
-        const elements = document.querySelectorAll(`${parentSelector} div`)
+    function initLocalSettings(selector, activeClass) {
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach(elem => {
+            elem.classList.remove(activeClass);
+            if (elem.getAttribute('id') === localStorage.getItem('gender')) {
+                elem.classList.add(activeClass)
+            }
+            if (elem.getAttribute('data-ratio') === localStorage.getItem('ratio')) {
+                elem.classList.add(activeClass)
+            }
+        })
+    }
+
+    initLocalSettings('#gender div', 'calculating__choose-item_active')
+    initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active')
+
+    function getStaticInformation(selector, activeClass) {
+        const elements = document.querySelectorAll(selector)
 
         elements.forEach(elem => {
             elem.addEventListener('click', (e) => {
@@ -41,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     ratio = +e.target.getAttribute('data-ratio')
                 } else {
                     gender = e.target.getAttribute('id')
+                    localStorage.setItem('gender', e.target.getAttribute('id'));
                 }
 
                 elements.forEach(elem => {
@@ -53,13 +70,12 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         })
     }
-    getStaticInformation('#gender', 'calculating__choose-item_active')
-    getStaticInformation('.calculating__choose_big', 'calculating__choose-item_active')
+
+    getStaticInformation('#gender div', 'calculating__choose-item_active')
+    getStaticInformation('.calculating__choose_big div', 'calculating__choose-item_active')
 
     function getDynamicInformation(selector) {
         const input = document.querySelector(selector)
-
-
 
         input.addEventListener('input', () => {
             if (input.value.match(/\D/g)) {
@@ -68,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 input.style.border = 'none'
             }
+
             switch (input.getAttribute('id')) {
                 case "height":
                     height = +input.value
@@ -87,4 +104,5 @@ document.addEventListener('DOMContentLoaded', function () {
     getDynamicInformation('#height')
     getDynamicInformation('#weight')
     getDynamicInformation('#age')
+    
 })
