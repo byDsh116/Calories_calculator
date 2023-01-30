@@ -1,5 +1,89 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Создаю хэдр
+    let title = document.createElement('h3')
+    title.setAttribute('class', 'header')
+    title.innerHTML = 'Рассчитаем вашу потребность в калориях?'
+
+    ////////////
+    let calcFieldDiv = document.createElement('div')
+    calcFieldDiv.setAttribute('class', 'calculating__field')
+
+    let calcSubtitle = document.createElement('div')
+    calcSubtitle.setAttribute('class', 'calculating__subtitle')
+    calcSubtitle.innerHTML = 'Ваш пол'
+
+    let chooseGenderDiv = document.createElement('div')
+    chooseGenderDiv.setAttribute('class', 'calculating__choose')
+    chooseGenderDiv.setAttribute('id', 'gender')
+
+    let chooseGenderWoman = document.createElement('div')
+    chooseGenderWoman.setAttribute('class', 'calculating__choose-item calculating__choose-item_active')
+    chooseGenderWoman.setAttribute('id', 'woman')
+    chooseGenderWoman.innerHTML = 'Женщина'
+
+    let chooseGenderMan = document.createElement('div')
+    chooseGenderMan.setAttribute('class', 'calculating__choose-item')
+    chooseGenderMan.setAttribute('id', 'man')
+    chooseGenderMan.innerHTML = 'Мужчина'
+
+    let chooseConstitutionTitle = document.createElement('div')
+    chooseConstitutionTitle.setAttribute('class', 'calculating__subtitle')
+    chooseConstitutionTitle.innerHTML = 'Ваша конституция'
+
+    let constitutionInputsDiv = document.createElement('div')
+    constitutionInputsDiv.setAttribute('class', 'calculating__choose calculating__choose_medium')
+
+
+
+
+    let fillPersonHeight = document.createElement('input')
+    fillPersonHeight.setAttribute('class', 'calculating__choose-item')
+    fillPersonHeight.setAttribute('id', 'height')
+    fillPersonHeight.setAttribute('type', 'text')
+    fillPersonHeight.setAttribute('placeholder', 'Введите рост')
+ 
+    let fillPersonWeight = document.createElement('input')
+    fillPersonWeight.setAttribute('class', 'calculating__choose-item')
+    fillPersonWeight.setAttribute('id', 'weight')
+    fillPersonWeight.setAttribute('type', 'text')
+    fillPersonWeight.setAttribute('placeholder', 'Введите вес')
+
+    let fillPersonAge = document.createElement('input')
+    fillPersonAge.setAttribute('class', 'calculating__choose-item')
+    fillPersonAge.setAttribute('id', 'age')
+    fillPersonAge.setAttribute('type', 'text')
+    fillPersonAge.setAttribute('placeholder', 'Введите возраст')
+
+    chooseGenderDiv.append(chooseGenderWoman, chooseGenderMan  )
+    calcFieldDiv.append(calcSubtitle, chooseGenderDiv,chooseConstitutionTitle, constitutionInputsDiv)
+    constitutionInputsDiv.append(fillPersonHeight,fillPersonWeight,fillPersonAge)
+    document.body.append(title, calcFieldDiv)
+    ////////////
+
+    // <!-- /////// -->
+    // <div class="calculating__field"> = chooseGenderDiv
+
+
+    //             <div class="calculating__choose calculating__choose_medium">    //  
+
+    //                 <input type="text" id="age" placeholder="Введите возраст" class="calculating__choose-item">
+    //             </div>
+
+    //             <div class="calculating__subtitle">
+    //                 Выберите вашу физическая активность
+    //             </div>
+
+
+
+
+
+
+
+
+
+
+
     const result = document.querySelector('.calculating__result span')
     let height, weight, age, gender, ratio;
 
@@ -104,5 +188,5 @@ document.addEventListener('DOMContentLoaded', function () {
     getDynamicInformation('#height')
     getDynamicInformation('#weight')
     getDynamicInformation('#age')
-    
+
 })

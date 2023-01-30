@@ -5,7 +5,8 @@ body{
 .calculating{
     padding: 50px 0;
 }
- .calculating .title{
+ /* .container  нужно создать контейнер и сделать контейнер - хедер */
+ .header{
     text-align: center;
 }
 .calculating__field{
