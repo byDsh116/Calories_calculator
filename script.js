@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let calcFieldDiv = document.createElement('div')
     calcFieldDiv.setAttribute('class', 'calculating__field')
 
-    let calcSubtitle = document.createElement('div')
-    calcSubtitle.setAttribute('class', 'calculating__subtitle')
-    calcSubtitle.innerHTML = 'Ваш пол'
+    let calcSubtitleChooseGender = document.createElement('div')
+    calcSubtitleChooseGender.setAttribute('class', 'calculating__subtitle')
+    calcSubtitleChooseGender.innerHTML = 'Ваш пол'
 
     let chooseGenderDiv = document.createElement('div')
     chooseGenderDiv.setAttribute('class', 'calculating__choose')
@@ -55,8 +55,41 @@ document.addEventListener('DOMContentLoaded', function () {
     fillPersonAge.setAttribute('type', 'text')
     fillPersonAge.setAttribute('placeholder', 'Введите возраст')
 
+    let calcSubtitleChooseActivity = document.createElement('div')
+    calcSubtitleChooseActivity.setAttribute('class', 'calculating__subtitle')
+    calcSubtitleChooseActivity.innerHTML = 'Выберите вашу физическую активность'
+
+
+    let chooseActivityContainer = document.createElement('div')
+    chooseActivityContainer.setAttribute('class', 'calculating__choose calculating__choose_big')
+
+    let chooseLowActivity = document.createElement('div')
+    chooseLowActivity.setAttribute('class', 'calculating__choose-item')
+    chooseLowActivity.setAttribute('id', 'low')
+    chooseLowActivity.setAttribute('data-ratio', '1.2')
+    chooseLowActivity.innerHTML = 'Низкая активность'
+
+    let chooseSmallActivity = document.createElement('div')
+    chooseSmallActivity.setAttribute('class', 'calculating__choose-item calculating__choose-item_active')
+    chooseSmallActivity.setAttribute('id', 'small')
+    chooseSmallActivity.setAttribute('data-ratio', '1.375')
+    chooseSmallActivity.innerHTML = 'Невысокая активность'
+
+    let chooseMediumActivity = document.createElement('div')
+    chooseMediumActivity.setAttribute('class', 'calculating__choose-item')
+    chooseMediumActivity.setAttribute('id', 'medium')
+    chooseMediumActivity.setAttribute('data-ratio', '1.55')
+    chooseMediumActivity.innerHTML = 'Умеренная активность'
+    
+    let chooseHighActivity = document.createElement('div')
+    chooseHighActivity.setAttribute('class', 'calculating__choose-item')
+    chooseHighActivity.setAttribute('id', 'high')
+    chooseHighActivity.setAttribute('data-ratio', '1.725')
+    chooseHighActivity.innerHTML = 'Высокая активность'
+
+    chooseActivityContainer.append(chooseLowActivity,chooseSmallActivity,chooseMediumActivity,chooseHighActivity)
     chooseGenderDiv.append(chooseGenderWoman, chooseGenderMan  )
-    calcFieldDiv.append(calcSubtitle, chooseGenderDiv,chooseConstitutionTitle, constitutionInputsDiv)
+    calcFieldDiv.append(calcSubtitleChooseGender, chooseGenderDiv,chooseConstitutionTitle, constitutionInputsDiv,calcSubtitleChooseActivity,chooseActivityContainer)
     constitutionInputsDiv.append(fillPersonHeight,fillPersonWeight,fillPersonAge)
     document.body.append(title, calcFieldDiv)
     ////////////
@@ -65,16 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // <div class="calculating__field"> = chooseGenderDiv
 
 
-    //             <div class="calculating__choose calculating__choose_medium">    //  
+    //         
 
-    //                 <input type="text" id="age" placeholder="Введите возраст" class="calculating__choose-item">
+    // <div class="calculating__choose calculating__choose_big"> dd
+
+    //                 <div data-ratio="1.725" id="high" class="calculating__choose-item">Высокая активность</div>
     //             </div>
-
-    //             <div class="calculating__subtitle">
-    //                 Выберите вашу физическая активность
-    //             </div>
-
-
 
 
 
