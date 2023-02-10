@@ -87,28 +87,37 @@ document.addEventListener('DOMContentLoaded', function () {
     chooseHighActivity.setAttribute('data-ratio', '1.725')
     chooseHighActivity.innerHTML = 'Высокая активность'
 
+
+    let calculatingDivider = document.createElement('div')
+    calculatingDivider.setAttribute('class', 'calculating__divider')
+
+    let calculatingTotal = document.createElement('div')
+    calculatingTotal.setAttribute('class', 'calculating__total')
+
+    let calcSubtitleResult = document.createElement('div')
+    calcSubtitleResult.setAttribute('class', 'calculating__subtitle')
+    calcSubtitleResult.innerHTML = 'Ваша суточная норма калорий:'
+
+    let calculatingResultDiv = document.createElement('div')
+    calculatingResultDiv.setAttribute('class', 'calculating__result')
+
+    let calculatingResultSpan = document.createElement('span')
+
+    calculatingResultDiv.append(calculatingResultSpan)
+    calculatingTotal.append(calcSubtitleResult,calculatingResultDiv)
     chooseActivityContainer.append(chooseLowActivity,chooseSmallActivity,chooseMediumActivity,chooseHighActivity)
     chooseGenderDiv.append(chooseGenderWoman, chooseGenderMan  )
-    calcFieldDiv.append(calcSubtitleChooseGender, chooseGenderDiv,chooseConstitutionTitle, constitutionInputsDiv,calcSubtitleChooseActivity,chooseActivityContainer)
+    calcFieldDiv.append(calcSubtitleChooseGender, chooseGenderDiv,chooseConstitutionTitle, constitutionInputsDiv,calcSubtitleChooseActivity,chooseActivityContainer,calculatingDivider,calculatingTotal)
     constitutionInputsDiv.append(fillPersonHeight,fillPersonWeight,fillPersonAge)
     document.body.append(title, calcFieldDiv)
     ////////////
 
     // <!-- /////// -->
-    // <div class="calculating__field"> = chooseGenderDiv
-
-
-    //         
-
-    // <div class="calculating__choose calculating__choose_big"> dd
-
-    //                 <div data-ratio="1.725" id="high" class="calculating__choose-item">Высокая активность</div>
-    //             </div>
 
 
 
 
-
+// добавить объект ошибки если поля не заполнены
 
 
 
