@@ -1,24 +1,34 @@
-body{
-    background-color: #a3ce9e69;
-}
+html{
+    overflow: hidden;   
+    }
 
-.calculating{
+body{
+    background-image: radial-gradient(rgb(190, 212, 186), rgb(155, 210, 146), green);
+    background-size: 200%;
+    background-image: url(
+        "https://pibig.info/uploads/posts/2022-07/thumbs/1657183051_46-pibig-info-p-zelenii-fon-odnotonnii-48.jpg");
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    }
+
+.root{
     padding: 50px 0;
 }
- /* .container  нужно создать контейнер и сделать контейнер - хедер */
  .header{
     text-align: center;
+    font-size: 25px;
+
 }
 .calculating__field{
     width: 100%;
     margin-top: 50px;
-    background: rgb(196 255 136 / 30%);
     padding: 30px 0 40px 0;
 }
 .calculating__subtitle{
     text-align: center;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 18px;
     margin-top: 30px;
 }
 .calculating__subtitle:first-child{
@@ -57,8 +67,8 @@ body{
     transition: .3s all;
 }
 .calculating__choose-item_active{
-    color: #fff;
-    background-color: #54724f;
+    color: #cdcaca;
+    background-color:#2f6027;
 }
 .calculating__choose_medium{
     width: 743px;
@@ -91,7 +101,7 @@ body{
     font-weight: 700;
 }
 .calculating__result span{
-    font-size: 42px;
+    font-size: 38px;
 }
 .menu{
     padding: 40px 0 50px 0;

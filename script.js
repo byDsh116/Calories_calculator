@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Создаю хэдр
     let title = document.createElement('h3')
-    title.setAttribute('class', 'header')
+    title.setAttribute('class', 'header animate__animated animate__fadeInDownBig')
     title.innerHTML = 'Рассчитаем вашу потребность в калориях?'
 
     ////////////
@@ -103,24 +103,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let calculatingResultSpan = document.createElement('span')
 
+    
+    let containerDiv = document.createElement('div')
+    containerDiv.setAttribute('class', 'container')
+
+    let calculatingRootDiv = document.createElement('div')
+    calculatingRootDiv.setAttribute('class', 'root')
+
     calculatingResultDiv.append(calculatingResultSpan)
     calculatingTotal.append(calcSubtitleResult,calculatingResultDiv)
     chooseActivityContainer.append(chooseLowActivity,chooseSmallActivity,chooseMediumActivity,chooseHighActivity)
     chooseGenderDiv.append(chooseGenderWoman, chooseGenderMan  )
     calcFieldDiv.append(calcSubtitleChooseGender, chooseGenderDiv,chooseConstitutionTitle, constitutionInputsDiv,calcSubtitleChooseActivity,chooseActivityContainer,calculatingDivider,calculatingTotal)
     constitutionInputsDiv.append(fillPersonHeight,fillPersonWeight,fillPersonAge)
-    document.body.append(title, calcFieldDiv)
-    ////////////
-
-    // <!-- /////// -->
-
-
-
+    containerDiv.append(title,calcFieldDiv)
+    calculatingRootDiv.append(containerDiv,calcFieldDiv)
+    document.body.append(calculatingRootDiv)
 
 // добавить объект ошибки если поля не заполнены
-
-
-
 
     const result = document.querySelector('.calculating__result span')
     let height, weight, age, gender, ratio;
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function calcTotal() {
         if (!gender || !height || !weight || !age || !ratio) {
             result.textContent = ' '
-            return;
+            return
         }
         if (gender === 'woman') {
             result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio)
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     calcTotal()
 
     function initLocalSettings(selector, activeClass) {
-        const elements = document.querySelectorAll(selector);
+        const elements = document.querySelectorAll(selector)
 
         elements.forEach(elem => {
             elem.classList.remove(activeClass);
